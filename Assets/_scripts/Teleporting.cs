@@ -35,7 +35,8 @@ public class Teleporting : MonoBehaviour
     gameObject.GetComponent<NavMeshAgent>().enabled = false;
     GetComponent<mouse_controller>().enabled = false;
     GetComponent<interacting>().enabled = false;
-    GetComponent<fishing>().enabled = true;
+    GetComponent<FisherController>().enabled = true;
+    GetComponent<DrawProj>().enabled = true;
     anim.SetBool("walk", false);
   }          
 }
