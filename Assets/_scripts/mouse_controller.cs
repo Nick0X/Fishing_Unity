@@ -6,38 +6,58 @@ using UnityEngine.AI;
 
 public class mouse_controller : MonoBehaviour
 {
-    Animator anim;
+    //Animator anim;
     private NavMeshAgent nav;
-    [SerializeField] private static float speed = 10.0f;
-    private bool hasReachedDestination()
-          {
-             if (nav.remainingDistance == 0f)
-                return true;
-             else
-                 return false;
-           }    
+    public float speed;
+    public CharacterController controller;
+    private Vector3 position;
+        
     void Start()
     {
-       anim = GetComponent<Animator>();
+       position = transform.position;
+       
+       //anim = GetComponent<Animator>();
        nav = GetComponent<NavMeshAgent>();
-       nav.speed = speed;
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        
-       if(Input.GetMouseButtonDown(0)) 
+        if(Input.GetMouseButtonDown(0)) 
         {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-
-            if(Physics.Raycast (ray, out hit, 5000) && Input.GetMouseButtonDown(0))
-            {
-            nav.SetDestination(hit.point);            
-            }
+        locatePosition();
         }
-        bool check = hasReachedDestination();
-            if (check == false) anim.SetBool("walk", true);
-            else anim.SetBool("walk", false);
+            moveToPosition();
+            //if (hasReachedDestination() == true) anim.SetBool("walk", false);
+           // else anim.SetBool("walk", true);
     }
+    
+    void locatePosition()
+    {
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            
+            if(Physics.Raycast(ray, out hit, 1000))
+            {
+            position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
+            Debug.Log("Position: " + position);          
+            }
+    }
+    
+    void moveToPosition()
+    {
+        if(Vector3.Distance(transform.position, position)>1)
+        {
+        Quaternion newRotation = Quaternion.LookRotation(position-transform.position, Vector3.forward);
+        newRotation.x = 0f;
+        newRotation.z = 0f;
+        transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * 10);
+        controller.SimpleMove(transform.forward * speed);
+        }
+    }
+
+    /*public bool hasReachedDestination()
+    {
+    return nav.remainingDistance == 0f;
+
+    }*/
 }
