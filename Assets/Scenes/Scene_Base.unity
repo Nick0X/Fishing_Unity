@@ -1082,20 +1082,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!136 &1239507032
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132148104663297}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.72016346
-  m_Height: 2.4194958
-  m_Direction: 1
-  m_Center: {x: -0.11727606, y: 0.7097468, z: -0.1380611}
 --- !u!114 &1239507058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2557,7 +2543,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148104663297}
   m_LocalRotation: {x: -0, y: 0.81994784, z: -0, w: 0.57243824}
-  m_LocalPosition: {x: -2.6119635, y: 10.31, z: 65.159096}
+  m_LocalPosition: {x: -2.68, y: 10.35, z: 64.97}
   m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2925,11 +2911,11 @@ GameObject:
   - component: {fileID: 5866666020816949697}
   - component: {fileID: 1239507029}
   - component: {fileID: 5866666020816949702}
-  - component: {fileID: 1239507032}
   - component: {fileID: 1239507058}
   - component: {fileID: 1239507068}
   - component: {fileID: 5866666020816949699}
   - component: {fileID: 5866666020816949703}
+  - component: {fileID: 5866666020816949704}
   m_Layer: 0
   m_Name: Fisher
   m_TagString: Player
@@ -6412,6 +6398,20 @@ MonoBehaviour:
   _joystick: {fileID: 2079987742}
   _animator: {fileID: 5866666020816949697}
   _moveSpeed: 10
+--- !u!136 &5866666020816949704
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148104663297}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.017358
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.93428236, z: 0}
 --- !u!4 &5941448105824349959
 Transform:
   m_ObjectHideFlags: 0
