@@ -32,7 +32,6 @@ public class Teleporting : MonoBehaviour
  public void Teleport() 
   {
     Fisher.transform.position = TeleportPosition.transform.position;
-    gameObject.GetComponent<NavMeshAgent>().enabled = false;
     GetComponent<mouse_controller>().enabled = false;
     GetComponent<interacting>().enabled = false;
     GetComponent<FisherController>().enabled = true;
