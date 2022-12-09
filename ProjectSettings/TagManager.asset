@@ -9,8 +9,7 @@ TagManager:
   - Teleport_Spot_1
   - Fishing_rope
   - Fishing_Rod
-  - coil
-  - zacep
+  - TeleportSpot
   layers:
   - Default
   - TransparentFX
